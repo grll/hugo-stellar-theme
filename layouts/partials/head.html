@@ -8,6 +8,8 @@
 {{ "<!-- [if lte IE 8 ]]> <script src=" | safeHTML }}"{{ .Site.BaseURL }}{{ "js/ie/html5shiv.js\"></script><![endif] -->" | safeHTML }}
 {{ $style := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "style.main.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $style.Permalink }}" />
-{{ "<!--[if lte IE 8]><link rel=\"stylesheet\" href=" | safeHTML }}"{{ .Site.BaseURL }}{{ "css/ie8.css\" /><![endif]-->" | safeHTML }}
-{{ "<!--[if lte IE 8]><link rel=\"stylesheet\" href=" | safeHTML }}"{{ .Site.BaseURL }}{{ "css/ie9.css\" /><![endif]-->" | safeHTML }}
+{{ $style := resources.Get "sass/ie8.scss" | resources.ExecuteAsTemplate "style.ie8.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+{{ "<!--[if lte IE 8]><link rel=\"stylesheet\" href=" | safeHTML }}"{{ $style.Permalink }}{{ "\" /><![endif]-->" | safeHTML }}
+{{ $style := resources.Get "sass/ie9.scss" | resources.ExecuteAsTemplate "style.ie9.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+{{ "<!--[if lte IE 9]><link rel=\"stylesheet\" href=" | safeHTML }}"{{ $style.Permalink }}{{ "\" /><![endif]-->" | safeHTML }}
 {{- partial "head_custom.html" . }}
