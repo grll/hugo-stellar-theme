@@ -5,6 +5,8 @@
 <meta name="description" content="{{ with .Site.Params.description }} {{ . }} {{ end }}">
 <meta name="author" content="{{ with .Site.Params.name }} {{ . }} {{ end }}">
 {{ hugo.Generator }}
+<link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
 {{ "<!-- [if lte IE 8 ]]> <script src=" | safeHTML }}"{{ .Site.BaseURL }}{{ "js/ie/html5shiv.js\"></script><![endif] -->" | safeHTML }}
 {{ $style := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "style.main.scss" . | resources.ToCSS | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $style.Permalink }}" />
