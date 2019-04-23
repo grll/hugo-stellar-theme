@@ -1,10 +1,13 @@
 {{ "<!-- Scripts -->" | safeHTML }}
-<script src="{{ .Site.BaseURL }}js/jquery.min.js"></script>
-<script src="{{ .Site.BaseURL }}js/jquery.scrollex.min.js"></script>
-<script src="{{ .Site.BaseURL }}js/jquery.scrolly.min.js"></script>
-<script src="{{ .Site.BaseURL }}js/skel.min.js"></script>
-<script src="{{ .Site.BaseURL }}js/util.js"></script>
 {{ "<!-- [if lte IE 8 ]]> <script src=" | safeHTML }}"{{ .Site.BaseURL }}{{ "js/ie/respond.min.js\"></script><![endif] -->" | safeHTML }}
-<script src="{{ .Site.BaseURL }}js/main.js"></script>
+{{ $jquery := resources.Get "js/jquery.min.js" }}
+{{ $scrollex := resources.Get "js/jquery.scrollex.min.js" }}
+{{ $scrolly := resources.Get "js/jquery.scrolly.min.js" }}
+{{ $skel := resources.Get "js/skel.min.js" }}
+{{ $util := resources.Get "js/util.js" }}
+{{ $main := resources.Get "js/main.js" }}
+{{ $js := slice $jquery $scrollex $scrolly $skel $util $main | resources.Concat "js/bundle.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}"></script>
+
 <!-- {{ template "_internal/google_analytics.html" . }} -->
 {{ template "_internal/google_analytics_async.html" . }}
