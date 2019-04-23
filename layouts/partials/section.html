@@ -43,6 +43,24 @@
     {{ if $section.content.enable }}
       <p class="content">{{ $section.content.text }}</p>
     {{ end }}
+
+    <!-- section splitContent -->
+    {{ if $section.splitcontents.enable }}
+      <div class="row">
+        {{ range $content := $section.splitcontent}}
+          <div class="6u 12u$(medium)">
+            <h3>{{ $content.title }}</h3>
+            {{ if $content.bullets.enable }}
+              <ul class="dashed align-left">
+                {{ range $bcontent := $content.bullets.content}}
+                  <li>{{ $bcontent | markdownify }}</li>
+                {{ end }}
+              </ul>
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
     
     <!-- section footer/cta -->
     {{ if $section.footer.enable }}
