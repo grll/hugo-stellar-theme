@@ -1,0 +1,14 @@
+///
+/// separator for iod.ai
+/// iod.ai | @grll
+///
+
+/* separator */
+  .separator {
+    width: 3.25em;
+    height: 2px;
+    margin: (_size(element-margin) * 1.0) auto (_size(element-margin) * 1.0) auto;
+    border-radius: 2px;
+    background-color: _palette(null, border);
+    @include vendor('background-image', 'linear-gradient(90deg, #{_palette(accent1)}, #{_palette(accent3)}, #{_palette(accent5)})');
+  }

@@ -15,7 +15,7 @@
 		padding: 0;
 		list-style: none;
 
-		li {
+		> li {
 			width: calc(#{(100% / 3)} - #{_size(element-margin)});
 			margin-left: _size(element-margin);
 			margin-top: (_size(element-margin) * 1.5);
@@ -30,10 +30,20 @@
 			> :last-child {
 				margin-bottom: 0;
 			}
+
+			p {
+				margin-bottom: 0;
+			}
+
+			ul {
+				li {
+					font-size: 0.9em;
+				}
+			}
 		}
 
 		@include breakpoint(medium) {
-			li {
+			> li {
 				width: calc(#{(100% / 2)} - #{_size(element-margin)});
 
 				&:nth-child(3) {
@@ -46,7 +56,7 @@
 			width: 100%;
 			margin: 0 0 _size(element-margin) 0;
 
-			li {
+			> li {
 				width: 100%;
 				margin-left: 0;
 				margin-top: _size(element-margin);

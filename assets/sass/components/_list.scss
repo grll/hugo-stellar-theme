@@ -157,6 +157,18 @@
 				}
 			}
 		}
+
+		&.dashed {
+			list-style-type: none;
+			padding-left: 1em;
+			padding-right: 1em;
+			> li:before {
+				content: "\0203A";
+				float: left;
+				margin-left: 0;
+				margin-right: 10px;
+			}
+		}
 	}
 
 	dl {

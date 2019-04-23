@@ -5,7 +5,7 @@ $base_url: "{{ .Site.BaseURL }}";
 @import 'libs/mixins';
 @import 'libs/skel';
 @import url('#{$base_url}css/font-awesome.min.css');
-@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
 
 /*
 	Stellar by HTML5 UP
@@ -59,6 +59,7 @@ $base_url: "{{ .Site.BaseURL }}";
 	@import 'components/image';
 	@import 'components/list';
 	@import 'components/section';
+	@import 'components/separator';
 	@import 'components/table';
 	@import 'components/features';
 	@import 'components/statistics';
