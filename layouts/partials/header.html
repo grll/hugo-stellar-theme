@@ -2,7 +2,9 @@
   {{ if .Site.Params.header.image }}
     <span class="logo"><img src="{{ .Site.Params.header.image }}" alt="" /></span>
   {{ end }}
-  <h1>{{ .Site.Params.header.title }}</h1>
+  {{ if .Site.Params.header.title }}
+    <h1>{{ .Site.Params.header.title }}</h1>
+  {{ end }}
   <p> {{ .Site.Params.header.description | markdownify}}
   </p>
 </header>
