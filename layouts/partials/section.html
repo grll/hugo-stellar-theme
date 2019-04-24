@@ -11,8 +11,15 @@
       <ul class="features">
         {{ range $count, $feature := $section.feature }}
         <li>
+          {{ if $feature.icon }}
           <span class="icon major style{{ add $count 1 }} {{ $feature.icon }}"></span>
+          {{ else if $feature.image }}
+            <img class="icon major" src="{{ $feature.image }}" alt="Profile Picture">
+          {{ end }}
           <h3>{{ $feature.title }} </h3>
+          {{ if $feature.subtitle }}
+            <h5>{{ $feature.subtitle }}</h5>
+          {{ end }}
           <p>{{ $feature.description | markdownify }}</p>
           {{ if $feature.bullets.enable }}
             <div class="separator"></div>
