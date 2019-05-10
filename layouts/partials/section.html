@@ -12,7 +12,8 @@
         {{ range $count, $feature := $section.feature }}
         <li>
           {{ if $feature.icon }}
-          <span class="icon major style{{ add $count 1 }} {{ $feature.icon }}"></span>
+            <i class="icon major style{{ add $count 1 }} fas {{ $feature.icon }}"></i>
+            <!-- <span class="icon major style{{ add $count 1 }} {{ $feature.icon }}"></span> -->
           {{ else if $feature.image }}
             <img class="icon major" src="{{ $feature.image }}" alt="Profile Picture">
           {{ end }}
